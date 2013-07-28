@@ -1,4 +1,3 @@
-DROP PROCEDURE IF EXISTS muusa_duplicate_p&
 DROP PROCEDURE IF EXISTS muusa_duplicate&
 CREATE PROCEDURE muusa_duplicate (beforeid INT, afterid INT)
 BEGIN
