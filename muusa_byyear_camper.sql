@@ -1,5 +1,5 @@
-    DROP VIEW IF EXISTS muusa_yearattending__camper&
-    CREATE VIEW muusa_yearattending__camper AS 
+    DROP VIEW IF EXISTS muusa_byyear_camper&
+    CREATE VIEW muusa_byyear_camper AS 
     	SELECT ya.year, f.id familyid, f.name familyname, 
     		f.address1, f.address2, f.city, f.statecd, f.zipcd, f.country, 
     		c.id camperid, c.sexcd, c.firstname, c.lastname, c.email, 

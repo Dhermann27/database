@@ -8,5 +8,5 @@
     	SELECT ry.amount INTO amount FROM muusa_yearattending ya, muusa_room r, muusa_ymcarate ry  
           WHERE ya.camperid=camperid AND ya.year=year AND ya.roomid=r.id AND r.buildingid=ry.buildingid AND
           	ry.agemin<=age AND ry.agemax>=age;
-        RETURN amount;
+        RETURN ROUND(amount, 2);
     END&
