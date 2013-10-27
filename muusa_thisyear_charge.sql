@@ -1,6 +1,6 @@
 DROP VIEW IF EXISTS muusa_thisyear_charge&
 CREATE VIEW muusa_thisyear_charge AS 
-	SELECT y.year, c.familyid, c.id camperid, h.id chargeid, h.amount, h.is_deposited, 
-    	h.chargetypeid, g.name chargetypename, h.timestamp, h.memo 
-    FROM muusa_camper c, muusa_charge h, muusa_chargetype g, muusa_year y
-    WHERE c.id=h.camperid AND h.chargetypeid=g.id AND h.year=y.year AND y.is_current=1&
+	SELECT c.familyid, c.id camperid, bh.id chargeid, bh.amount, bh.is_deposited, 
+    	bh.chargetypeid, g.name chargetypename, bh.timestamp, bh.memo 
+    FROM muusa_camper c, muusa_byyear_charge bh, muusa_chargetype g, muusa_year y
+    WHERE c.id=bh.camperid AND bh.chargetypeid=g.id AND bh.year=y.year AND y.is_current=1&

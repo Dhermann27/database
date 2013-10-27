@@ -17,10 +17,11 @@ BEGIN
       -- DAH Meyer/Burt Staff Housing Rate $58.00/night
 	ELSE
 		RETURN (SELECT FORMAT(IFNULL(hr.amount*days,0),2) 
-              FROM muusa_yearattending ya, muusa_room r, muusa_building b, muusa_housingrate hr 
-              WHERE ya.camperid=camperid AND ya.year=year AND r.id=ya.roomid AND b.id=r.buildingid AND 
-              	b.id=hr.buildingid AND hr.programid=programid AND age>4 AND 
+              FROM muusa_yearattending ya, muusa_room r, muusa_housingrate hr 
+              WHERE ya.camperid=camperid AND ya.year=year AND r.id=ya.roomid AND 
+              	r.buildingid=hr.buildingid AND hr.programid=programid AND age>4 AND 
               	(hr.occupancy_adult=adults OR (hr.occupancy_adult=999 AND adults>0)) AND 
               	(hr.occupancy_children=children OR (hr.occupancy_children=999 AND children>0)));
+        -- TODO: Housing Rates withing year range
    END IF;
 END&
