@@ -1,7 +1,7 @@
 DROP VIEW IF EXISTS muusa_thisyear_camper&
 CREATE VIEW muusa_thisyear_camper AS 
-	SELECT bc.year, familyid, familyname, address1, address2, city, statecd, zipcd, country, 
-    	camperid, sexcd, firstname, lastname, email, birthdate, birthday, age, 
+	SELECT familyid, familyname, address1, address2, city, statecd, zipcd, country, 
+    	id, sexcd, firstname, lastname, email, birthdate, birthday, age, 
     	gradeoffset, grade, programid, programname, sponsor, is_handicap, foodoptionid, 
     	churchiid, churchname, churchcity, churchstatecd, yearattendingid, days, 
     	roomid, roomnbr, buildingid, buildingname
