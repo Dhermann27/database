@@ -17,7 +17,7 @@ CREATE VIEW muusa_byyear_charge AS
 		WHERE ya.camperid=c.id AND g.id=1000
 	UNION ALL -- Staff Credits
 		SELECT 0, bsp.year, bsp.familyid, bsp.camperid, -(bsp.registration_amount+bsp.housing_amount) amount,
-			NULL, 1021, g.name, DATE(bsp.created_at), bsp.positionname 
+			NULL, 1021, g.name, DATE(bsp.created_at), bsp.staffpositionname 
 		FROM muusa_byyear_staff bsp, muusa_chargetype g
 		WHERE g.id=1021&
 	--UNION ALL -- Scholarships
