@@ -1,7 +1,7 @@
 DROP VIEW IF EXISTS muusa_byyear_staff&
 CREATE VIEW muusa_byyear_staff AS
 	SELECT ya.year, c.familyid, c.id camperid, ya.id yearattendingid, c.firstname, c.lastname,
-    	IF(COUNT(sp.housing_amount)=1,sp.name,'Multiple Credits') positionname, sp.id positionid, 
+    	IF(COUNT(sp.housing_amount)=1,sp.name,'Multiple Credits') staffpositionname, sp.id staffpositionid, 
     	LEAST(muusa_getprogramfee(c.id, ya.year), SUM(sp.registration_amount)) registration_amount,
     	LEAST(muusa_getrate(c.id, ya.year), SUM(sp.housing_amount)) housing_amount,
     	sp.programid, ysp.created_by, ysp.created_at
