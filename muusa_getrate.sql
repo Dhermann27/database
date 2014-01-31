@@ -21,7 +21,7 @@ BEGIN
               WHERE ya.camperid=camperid AND ya.year=year AND r.id=ya.roomid AND 
               	r.buildingid=hr.buildingid AND hr.programid=programid AND age>4 AND 
               	(hr.occupancy_adult=adults OR (hr.occupancy_adult=999 AND adults>0)) AND 
-              	(hr.occupancy_children=children OR (hr.occupancy_children=999 AND children>0)));
-        -- TODO: Housing Rates withing year range
+              	(hr.occupancy_children=children OR (hr.occupancy_children=999 AND children>0)) AND
+              	year>=hr.start_year AND year<=hr.end_year);
    END IF;
 END&
