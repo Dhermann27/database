@@ -8,7 +8,7 @@ CREATE VIEW muusa_byyear_charge AS
 		SELECT 0, ya.year, c.familyid, ya.camperid, muusa_getrate(ya.camperid, ya.year) amount, NULL, 
 			1000, g.name, ya.created_at, d.name 
 		FROM muusa_yearattending ya, muusa_camper c, muusa_room r, muusa_building d, muusa_chargetype g
-		WHERE ya.roomid!=0 AND ya.camperid=c.id AND ya.roomid=r.id AND r.buildingid=d.id AND g.id=1000
+		WHERE ya.roomid!=0 AND ya.camperid=c.id AND ya.roomid=r.id AND r.buildingid=d.id AND muusa_getrate(ya.camperid, ya.year)>0 AND g.id=1000
 	-- TODO: Workshop Fees
 	UNION ALL -- Registration Fees
 		SELECT 0, ya.year, c.familyid, ya.camperid, muusa_getprogramfee(ya.camperid, ya.year) amount, NULL, 
