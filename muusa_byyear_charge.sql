@@ -20,8 +20,3 @@ CREATE VIEW muusa_byyear_charge AS
 			NULL, 1021, g.name, bsp.created_at, bsp.staffpositionname 
 		FROM muusa_byyear_staff bsp, muusa_chargetype g
 		WHERE g.id=1021&
-	--UNION ALL -- Scholarships Too many function calls in housing_amount of byear_scholarship
-		--SELECT 0, bsc.year, bsc.familyid, bsc.camperid, -(bsc.registration_amount+bsc.housing_amount) amount, 
-			--NULL, bsc.chargetypeid, bsc.name, bsc.created_at, CONCAT(c.firstname, ' ', c.lastname) 
-	--	FROM muusa_byyear_scholarship bsc, muusa_camper c
-		--WHERE bsc.camperid=c.id&

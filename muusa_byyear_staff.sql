@@ -5,8 +5,7 @@ CREATE VIEW muusa_byyear_staff AS
     	LEAST(muusa_getprogramfee(c.id, ya.year), SUM(sp.registration_amount)) registration_amount,
     	LEAST(IFNULL(muusa_getrate(c.id, ya.year), 0), SUM(sp.housing_amount)) housing_amount,
     	sp.programid, ysp.created_by, ysp.created_at
-    FROM (muusa_camper c, muusa_yearattending ya, muusa_yearattending__staff ysp, muusa_staffposition sp)
-    LEFT JOIN muusa_scholarship sc ON sc.yearattendingid=ya.id
+    FROM muusa_camper c, muusa_yearattending ya, muusa_yearattending__staff ysp, muusa_staffposition sp
     WHERE c.id=ya.camperid AND ya.id=ysp.yearattendingid AND ysp.staffpositionid=sp.id AND
     	ya.year>=sp.start_year AND ya.year<=sp.end_year
     GROUP BY ya.year, c.id
