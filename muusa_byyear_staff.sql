@@ -13,7 +13,7 @@ CREATE VIEW muusa_byyear_staff AS
     	ya.year>=sp.start_year AND ya.year<=sp.end_year
     GROUP BY ya.year, c.id
 	UNION ALL  
-		SELECT y.year, c.familyid, c.id, 0, c.firstname, c.lastname,
+		SELECT y.year, c.familyid, c.id camperid, 0, c.firstname, c.lastname,
     		IF(COUNT(sp.housing_amount)=1,sp.name,'Multiple Credits'), sp.id, 
     		LEAST(muusa_getprogramfee(c.id, y.year), SUM(sp.registration_amount)), 0,
     		sp.programid, cs.created_by, cs.created_at

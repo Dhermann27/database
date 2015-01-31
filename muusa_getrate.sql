@@ -16,7 +16,7 @@ BEGIN
       RETURN days * 58;
       -- DAH Meyer/Burt Staff Housing Rate $58.00/night
 	ELSE
-		RETURN (SELECT FORMAT(IF(age>4, IFNULL(hr.amount*days,0), 0),2) 
+		RETURN (SELECT FORMAT(IF(age>5, IFNULL(hr.amount*days,0), 0),2) 
               FROM muusa_yearattending ya, muusa_room r, muusa_housingrate hr 
               WHERE ya.camperid=camperid AND ya.year=year AND r.id=ya.roomid AND 
               	r.buildingid=hr.buildingid AND hr.programid=programid AND 
