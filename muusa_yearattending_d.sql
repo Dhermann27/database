@@ -6,4 +6,5 @@ BEGIN
 	DELETE FROM muusa_yearattending__volunteer WHERE yearattendingid=OLD.id;
 	DELETE FROM muusa_yearattending__workshop WHERE yearattendingid=OLD.id;
 	DELETE FROM muusa_roommatepreference WHERE yearattendingid=OLD.id;
+	DELETE FROM jml_user_usergroup_map WHERE user_id=(SELECT u.id FROM jml_users u, muusa_camper c WHERE u.email=c.email AND c.id=OLD.camperid) AND group_id=(SELECT id FROM jml_usergroups WHERE title LIKE OLD.year);
 END&
